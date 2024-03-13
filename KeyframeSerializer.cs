@@ -29,15 +29,7 @@ public static class KeyframeSerializer
     {
         writer.WriteInt32(values.Length);
         for (int i = 0; i < values.Length; i++)
-        {
-            writer.WriteSingle(values[i].inTangent);
-            writer.WriteSingle(values[i].inWeight);
-            writer.WriteSingle(values[i].outTangent);
-            writer.WriteSingle(values[i].outWeight);
-            writer.WriteSingle(values[i].time);
-            writer.WriteSingle(values[i].value);
-            writer.WriteInt32((int)values[i].weightedMode);
-        }
+            writer.WriteKeyframe(values[i]);
     }
 
     public static Keyframe[] ReadKeyframes(this Reader reader)
